@@ -23,15 +23,15 @@
 (require 'project)
 
 (defcustom flymake-ruff-program "ruff"
-  "How to invoke ruff."
+  "How to invoke ruff, e.g. \"ruff\" or '(\"uv\" \"run\" \"ruff\")."
   :group 'flymake-ruff
-  :type '(choice string (list string)))
+  :type '(choice string (repeat string)))
 
 (defcustom flymake-ruff-program-args
   '("check" "--output-format" "concise" "--exit-zero" "--quiet" "-")
   "Flags to be given to \"ruff\"."
   :group 'flymake-ruff
-  :type '(list string))
+  :type '(repeat string))
 
 (defconst flymake-ruff-default-severity :warning
   "Default Flymake severity for unmatched Ruff diagnostic codes.")
